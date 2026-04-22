@@ -174,6 +174,10 @@
       background: #fff7ed;
       color: #c2410c;
       border-color: #fed7aa;
+    .tag-source-institutions_comparees {
+      background: #f3e8ff;
+      color: #7c3aed;
+      border-color: #ddd6fe;
     }
 
     .usage-box {
@@ -313,7 +317,7 @@
             <option value="diplomatie">Diplomatie</option>
             <option value="droit">Droit</option>
             <option value="economie">Économie</option>
-            <option value="institutions">Institutions (comparées)</option>
+            <option value="institutions_comparees">Institutions comparées</option>
           </select>
         </div>
 
@@ -355,6 +359,7 @@
         <table>
           <thead>
             <tr>
+              <th>Pays</th>
               <th>中文</th>
               <th>Français</th>
               <th>Catégorie</th>
@@ -366,7 +371,7 @@
           </thead>
           <tbody id="resultsBody">
             <tr>
-              <td colspan="7" class="empty">
+              <td colspan="8" class="empty">
                 Entrez un mot-clé pour lancer la recherche.
               </td>
             </tr>
@@ -381,7 +386,7 @@
       { path: "data/diplomatie.csv", source: "diplomatie" },
       { path: "data/droit.csv", source: "droit" },
       { path: "data/economie.csv", source: "economie" },
-      { path: "data/titres_et_institutions_par_pays.csv", source: "institutions" }
+      { path: "data/titres_et_institutions_par_pays.csv", source: "institutions_comparees" }
     ];
 
     let allData = [];
@@ -440,6 +445,7 @@
         });
 
         return {
+          pays: row.pays || "",
           chinois: row.chinois || "",
           francais: row.francais || "",
           categorie: row.categorie || "",
@@ -456,6 +462,8 @@
       if (source === "droit") return "Droit";
       if (source === "economie") return "Économie";
       return source;
+      if (source === "institutions_comparees") return "Institutions comparées";
+  return source;
     }
 
     function fillCategoryOptions(data) {
@@ -483,7 +491,7 @@
       if (!data.length) {
         resultsBody.innerHTML = `
           <tr>
-            <td colspan="7" class="empty">
+            <td colspan="8" class="empty">
               Aucun résultat. Essayez un autre mot-clé ou modifiez les filtres.
             </td>
           </tr>
@@ -494,6 +502,7 @@
 
       resultsBody.innerHTML = data.map((item, index) => `
         <tr data-index="${index}">
+          <td>${escapeHTML(item.pays || "")}</td>
           <td class="term-zh">${escapeHTML(item.chinois)}</td>
           <td class="term-fr">${escapeHTML(item.francais)}</td>
           <td>${escapeHTML(item.categorie)}</td>
@@ -521,7 +530,7 @@
     function showInitialMessage() {
       resultsBody.innerHTML = `
         <tr>
-          <td colspan="7" class="empty">
+          <td colspan="8" class="empty">
             Entrez un mot-clé pour lancer la recherche.
           </td>
         </tr>
@@ -585,7 +594,7 @@
       } catch (error) {
         resultsBody.innerHTML = `
           <tr>
-            <td colspan="7" class="empty">
+            <td colspan="8" class="empty">
               Impossible de charger les données. Vérifiez que les fichiers CSV existent bien dans le dossier <code>data/</code>.
             </td>
           </tr>

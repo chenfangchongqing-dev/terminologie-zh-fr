@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corpus terminologique français-chinois</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #dbe2ea;
+      --primary: #1d4ed8;
+      --primary-soft: #e8f0ff;
+      --accent: #0f766e;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #eaf2ff 0%, #f7fbff 100%);
+      border: 1px solid #d9e6ff;
+      border-radius: 22px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cfd8e3;
+      border-radius: 12px;
+      font-size: 0.98rem;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .stats {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #eef2f7;
+      color: var(--text);
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tag-source-diplomatie {
+      background: #eef6ff;
+      color: #1d4ed8;
+      border-color: #cfe0ff;
+    }
+
+    .tag-source-droit {
+      background: #f0fdf4;
+      color: #15803d;
+      border-color: #ccefd7;
+    }
+
+    .tag-source-economie {
+      background: #fff7ed;
+      color: #c2410c;
+      border-color: #fed7aa;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+    }
+
+    thead th {
+      background: #f8fafc;
+      color: #334155;
+      text-align: left;
+      font-size: 0.92rem;
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tbody td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #edf2f7;
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    tbody tr:hover {
+      background: #f8fbff;
+    }
+
+    tbody tr.active {
+      background: var(--primary-soft);
+    }
+
+    .term-zh {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .term-fr {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .empty {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>Corpus terminologique français-chinois</h1>
+      <p>
+        Plateforme de consultation en ligne pour l’enseignement, la traduction et l’interprétation.
+      </p>
+    </section>
+
+    <section class="panel">
+      <div class="filters">
+        <div class="field">
+          <label for="searchInput">Recherche</label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Entrer un terme en chinois ou en français..."
+          />
+        </div>
+
+        <div class="field">
+          <label for="sourceFilter">Domaine</label>
+          <select id="sourceFilter">
+            <option value="">Tous les domaines</option>
+            <option value="diplomatie">Diplomatie</option>
+            <option value="droit">Droit</option>
+            <option value="economie">Économie</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="categoryFilter">Catégorie</label>
+          <select id="categoryFilter">
+            <option value="">Toutes les catégories</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="stats" id="stats">Chargement des données...</div>
+        <div class="buttons">
+          <button class="btn-secondary" id="resetBtn">Réinitialiser</button>
+          <button class="btn-primary" id="showAllBtn">Afficher tout</button>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span class="tag tag-source-diplomatie">Diplomatie</span>
+        <span class="tag tag-source-droit">Droit</span>
+        <span class="tag tag-source-economie">Économie</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>中文</th>
+              <th>Français</th>
+              <th>Catégorie</th>
+              <th>Domaine</th>
+              <th>Registre</th>
+              <th>Définition</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+            <tr>
+              <td colspan="7" class="empty">Chargement...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="footer-note">
+        Astuce : vous pouvez rechercher en chinois, en français, ou filtrer par domaine et par catégorie.
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const files = [
+      { path: "data/diplomatie.csv", source: "diplomatie" },
+      { path: "data/droit.csv", source: "droit" },
+      { path: "data/economie.csv", source: "economie" }
+    ];
+
+    let allData = [];
+
+    const searchInput = document.getElementById("searchInput");
+    const sourceFilter = document.getElementById("sourceFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const resultsBody = document.getElementById("resultsBody");
+    const stats = document.getElementById("stats");
+    const resetBtn = document.getElementById("resetBtn");
+    const showAllBtn = document.getElementById("showAllBtn");
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        const next = line[i + 1];
+
+        if (char === '"') {
+          if (inQuotes && next === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === "," && !inQuotes) {
+          result.push(current.trim());
+          current = "";
+        } else {
+          current += char;
+        }
+      }
+
+      result.push(current.trim());
+      return result;
+    }
+
+    async function loadCSV(fileInfo) {
+      const response = await fetch(fileInfo.path);
+      const text = await response.text();
+      const lines = text.split(/\r?\n/).filter(line => line.trim() !== "");
+
+      if (lines.length <= 1) return [];
+
+      const headers = parseCSVLine(lines[0]).map(h => h.toLowerCase());
+
+      return lines.slice(1).map(line => {
+        const cols = parseCSVLine(line);
+        const row = {};
+        headers.forEach((header, index) => {
+          row[header] = cols[index] ? cols[index].trim() : "";
+        });
+
+        return {
+          chinois: row.chinois || "",
+          francais: row.francais || "",
+          categorie: row.categorie || "",
+          registre: row.registre || "",
+          definition: row.definition || "",
+          note: row.note || "",
+          source: fileInfo.source
+        };
+      });
+    }
+
+    function formatSource(source) {
+      if (source === "diplomatie") return "Diplomatie";
+      if (source === "droit") return "Droit";
+      if (source === "economie") return "Économie";
+      return source;
+    }
+
+    function fillCategoryOptions(data) {
+      const categories = [...new Set(
+        data.map(item => item.categorie).filter(Boolean)
+      )].sort((a, b) => a.localeCompare(b, "fr"));
+
+      categoryFilter.innerHTML = `<option value="">Toutes les catégories</option>`;
+      categories.forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = cat;
+        categoryFilter.appendChild(option);
+      });
+    }
+
+    function renderTable(data) {
+      if (!data.length) {
+        resultsBody.innerHTML = `
+          <tr>
+            <td colspan="7" class="empty">
+              Aucun résultat. Essayez un autre mot-clé ou modifiez les filtres.
+            </td>
+          </tr>
+        `;
+        stats.textContent = "0 résultat";
+        return;
+      }
+
+      resultsBody.innerHTML = data.map((item, index) => `
+        <tr data-index="${index}">
+          <td class="term-zh">${escapeHTML(item.chinois)}</td>
+          <td class="term-fr">${escapeHTML(item.francais)}</td>
+          <td>${escapeHTML(item.categorie || "")}</td>
+          <td>
+            <span class="tag tag-source-${item.source}">
+              ${escapeHTML(formatSource(item.source))}
+            </span>
+          </td>
+          <td>${escapeHTML(item.registre || "")}</td>
+          <td>${escapeHTML(item.definition || "")}</td>
+          <td>${escapeHTML(item.note || "")}</td>
+        </tr>
+      `).join("");
+
+      stats.textContent = `${data.length} résultat${data.length > 1 ? "s" : ""}`;
+
+      document.querySelectorAll("#resultsBody tr").forEach(row => {
+        row.addEventListener("click", () => {
+          document.querySelectorAll("#resultsBody tr").forEach(r => r.classList.remove("active"));
+          row.classList.add("active");
+        });
+      });
+    }
+
+    function escapeHTML(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function applyFilters() {
+      const keyword = searchInput.value.trim().toLowerCase();
+      const sourceValue = sourceFilter.value;
+      const categoryValue = categoryFilter.value;
+
+      const filtered = allData.filter(item => {
+        const inKeyword =
+          !keyword ||
+          item.chinois.toLowerCase().includes(keyword) ||
+          item.francais.toLowerCase().includes(keyword) ||
+          item.definition.toLowerCase().includes(keyword) ||
+          item.note.toLowerCase().includes(keyword);
+
+        const inSource = !sourceValue || item.source === sourceValue;
+        const inCategory = !categoryValue || item.categorie === categoryValue;
+
+        return inKeyword && inSource && inCategory;
+      });
+
+      renderTable(filtered);
+    }
+
+    async function init() {
+      try {
+        const loaded = await Promise.all(files.map(loadCSV));
+        allData = loaded.flat();
+
+        fillCategoryOptions(allData);
+        renderTable(allData);
+
+        searchInput.addEventListener("input", applyFilters);
+        sourceFilter.addEventListener("change", applyFilters);
+        categoryFilter.addEventListener("change", applyFilters);
+
+        resetBtn.addEventListener("click", () => {
+          searchInput.value = "";
+          sourceFilter.value = "";
+          categoryFilter.value = "";
+          renderTable(allData);
+        });
+
+        showAllBtn.addEventListener("click", () => {
+          searchInput.value = "";
+          sourceFilter.value = "";
+          categoryFilter.value = "";
+          renderTable(allData);
+        });
+      } catch (error) {
+        resultsBody.innerHTML = `
+          <tr>
+            <td colspan="7" class="empty">
+              Impossible de charger les données. Vérifiez que les fichiers CSV existent bien dans le dossier <code>data/</code>.
+            </td>
+          </tr>
+        `;
+        stats.textContent = "Erreur de chargement";
+        console.error(error);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

@@ -13,7 +13,6 @@
       --line: #dbe2ea;
       --primary: #1d4ed8;
       --primary-soft: #e8f0ff;
-      --accent: #0f766e;
       --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       --radius: 16px;
     }
@@ -120,6 +119,7 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     button {
@@ -138,13 +138,14 @@
     .btn-secondary {
       background: #eef2f7;
       color: var(--text);
+      border: 1px solid var(--line);
     }
 
     .legend {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 8px;
+      margin-top: 14px;
     }
 
     .tag {
@@ -175,6 +176,44 @@
       border-color: #fed7aa;
     }
 
+    .usage-box {
+      margin-top: 12px;
+    }
+
+    .usage-toggle {
+      background: #eef2f7;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 0.94rem;
+      cursor: pointer;
+    }
+
+    .usage-toggle:hover {
+      background: #e8edf5;
+    }
+
+    .usage-content {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fafbff;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .usage-content p {
+      margin: 0 0 10px 0;
+    }
+
+    .usage-content p:last-child {
+      margin-bottom: 0;
+    }
+
     .table-wrap {
       overflow-x: auto;
       border-radius: 14px;
@@ -185,7 +224,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 980px;
+      min-width: 1100px;
     }
 
     thead th {
@@ -225,20 +264,11 @@
       color: #0f172a;
     }
 
-    .muted {
-      color: var(--muted);
-    }
-
     .empty {
       text-align: center;
-      padding: 36px 20px;
+      padding: 48px 20px;
       color: var(--muted);
-    }
-
-    .footer-note {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.98rem;
     }
 
     @media (max-width: 860px) {
@@ -248,6 +278,10 @@
 
       .hero h1 {
         font-size: 1.55rem;
+      }
+
+      .toolbar {
+        align-items: flex-start;
       }
     }
   </style>
@@ -291,10 +325,23 @@
       </div>
 
       <div class="toolbar">
-        <div class="stats" id="stats">Chargement des données...</div>
+        <div class="stats" id="stats">0 résultat</div>
+
         <div class="buttons">
           <button class="btn-secondary" id="resetBtn">Réinitialiser</button>
-          <button class="btn-primary" id="showAllBtn">Tout afficher</button>
+          <button class="usage-toggle" id="usageToggle">📘 Notes d’usage</button>
+        </div>
+      </div>
+
+      <div class="usage-box">
+        <div class="usage-content" id="usageContent">
+          <p><strong>S.E. (Son Excellence)</strong> : uniquement pour les chefs d’État, les chefs de gouvernement et les ambassadeurs ; ne pas employer pour les autorités locales.</p>
+
+          <p><strong>en / auprès de</strong> : <strong>en</strong> s’emploie avec un pays (<em>Ambassadeur en France</em>) ; <strong>auprès de</strong> s’emploie avec une organisation ou une institution (<em>Représentant permanent auprès de l’ONU</em>).</p>
+
+          <p><strong>Hiérarchie diplomatique indicative</strong> : Ambassadeur → Ministre → Conseiller → Secrétaire → Attaché.</p>
+
+          <p><strong>Point de vigilance</strong> : dans le contexte diplomatique, <em>Ministre</em> signifie « 公使 » et non « ministre » au sens de membre du gouvernement.</p>
         </div>
       </div>
 
@@ -321,13 +368,12 @@
           </thead>
           <tbody id="resultsBody">
             <tr>
-              <td colspan="7" class="empty">Entrez un mot-clé pour lancer la recherche</td>
+              <td colspan="7" class="empty">
+                Entrez un mot-clé pour lancer la recherche.
+              </td>
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="footer-note">
-        Astuce : vous pouvez rechercher en chinois, en français, ou filtrer par domaine et par catégorie.
       </div>
     </section>
   </div>
@@ -347,7 +393,8 @@
     const resultsBody = document.getElementById("resultsBody");
     const stats = document.getElementById("stats");
     const resetBtn = document.getElementById("resetBtn");
-    const showAllBtn = document.getElementById("showAllBtn");
+    const usageToggle = document.getElementById("usageToggle");
+    const usageContent = document.getElementById("usageContent");
 
     function parseCSVLine(line) {
       const result = [];
@@ -426,6 +473,13 @@
       });
     }
 
+    function escapeHTML(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
     function renderTable(data) {
       if (!data.length) {
         resultsBody.innerHTML = `
@@ -443,15 +497,15 @@
         <tr data-index="${index}">
           <td class="term-zh">${escapeHTML(item.chinois)}</td>
           <td class="term-fr">${escapeHTML(item.francais)}</td>
-          <td>${escapeHTML(item.categorie || "")}</td>
+          <td>${escapeHTML(item.categorie)}</td>
           <td>
             <span class="tag tag-source-${item.source}">
               ${escapeHTML(formatSource(item.source))}
             </span>
           </td>
-          <td>${escapeHTML(item.registre || "")}</td>
-          <td>${escapeHTML(item.definition || "")}</td>
-          <td>${escapeHTML(item.note || "")}</td>
+          <td>${escapeHTML(item.registre)}</td>
+          <td>${escapeHTML(item.definition)}</td>
+          <td>${escapeHTML(item.note)}</td>
         </tr>
       `).join("");
 
@@ -465,17 +519,26 @@
       });
     }
 
-    function escapeHTML(value) {
-      return value
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+    function showInitialMessage() {
+      resultsBody.innerHTML = `
+        <tr>
+          <td colspan="7" class="empty">
+            Entrez un mot-clé pour lancer la recherche.
+          </td>
+        </tr>
+      `;
+      stats.textContent = "0 résultat";
     }
 
     function applyFilters() {
       const keyword = searchInput.value.trim().toLowerCase();
       const sourceValue = sourceFilter.value;
       const categoryValue = categoryFilter.value;
+
+      if (!keyword && !sourceValue && !categoryValue) {
+        showInitialMessage();
+        return;
+      }
 
       const filtered = allData.filter(item => {
         const inKeyword =
@@ -500,7 +563,8 @@
         allData = loaded.flat();
 
         fillCategoryOptions(allData);
-// renderTable(allData);
+        showInitialMessage();
+
         searchInput.addEventListener("input", applyFilters);
         sourceFilter.addEventListener("change", applyFilters);
         categoryFilter.addEventListener("change", applyFilters);
@@ -509,14 +573,15 @@
           searchInput.value = "";
           sourceFilter.value = "";
           categoryFilter.value = "";
-          renderTable(allData);
+          showInitialMessage();
         });
 
-        showAllBtn.addEventListener("click", () => {
-          searchInput.value = "";
-          sourceFilter.value = "";
-          categoryFilter.value = "";
-          renderTable(allData);
+        usageToggle.addEventListener("click", () => {
+          if (usageContent.style.display === "block") {
+            usageContent.style.display = "none";
+          } else {
+            usageContent.style.display = "block";
+          }
         });
       } catch (error) {
         resultsBody.innerHTML = `

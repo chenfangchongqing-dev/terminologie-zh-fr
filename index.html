@@ -407,7 +407,6 @@
 
     const searchInput = document.getElementById("searchInput");
     const sourceFilter = document.getElementById("sourceFilter");
-    const categoryFilter = document.getElementById("categoryFilter");
     const resultsBody = document.getElementById("resultsBody");
     const stats = document.getElementById("stats");
     const resetBtn = document.getElementById("resetBtn");
@@ -552,7 +551,6 @@
     function applyFilters() {
       const keyword = searchInput.value.trim().toLowerCase();
       const sourceValue = sourceFilter.value;
-      const categoryValue = categoryFilter.value;
 
       if (!keyword && !sourceValue && !categoryValue) {
         showInitialMessage();
@@ -569,9 +567,8 @@
           item.note.toLowerCase().includes(keyword);
 
         const inSource = !sourceValue || item.source === sourceValue;
-        const inCategory = !categoryValue || item.categorie === categoryValue;
 
-        return inKeyword && inSource && inCategory;
+        return inKeyword && inSource;
       });
 
       renderTable(filtered);
@@ -582,17 +579,14 @@
         const loaded = await Promise.all(files.map(loadCSV));
         allData = loaded.flat();
 
-        fillCategoryOptions(allData);
         showInitialMessage();
 
         searchInput.addEventListener("input", applyFilters);
         sourceFilter.addEventListener("change", applyFilters);
-        categoryFilter.addEventListener("change", applyFilters);
 
         resetBtn.addEventListener("click", () => {
           searchInput.value = "";
           sourceFilter.value = "";
-          categoryFilter.value = "";
           showInitialMessage();
         });
 

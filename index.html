@@ -378,16 +378,14 @@
               <th>Pays</th>
               <th>中文</th>
               <th>Français</th>
-              <th>Catégorie</th>
               <th>Domaine</th>
-              <th>Registre</th>
               <th>Définition</th>
               <th>Note</th>
             </tr>
           </thead>
           <tbody id="resultsBody">
             <tr>
-              <td colspan="8" class="empty">
+              <td colspan="6" class="empty">
                 Entrez un mot-clé pour lancer la recherche.
               </td>
             </tr>
@@ -506,7 +504,7 @@
       if (!data.length) {
         resultsBody.innerHTML = `
           <tr>
-            <td colspan="8" class="empty">
+            <td colspan="6" class="empty">
               Aucun résultat. Essayez un autre mot-clé ou modifiez les filtres.
             </td>
           </tr>
@@ -520,13 +518,11 @@
           <td>${escapeHTML(item.pays || "")}</td>
           <td class="term-zh">${escapeHTML(item.chinois)}</td>
           <td class="term-fr">${escapeHTML(item.francais)}</td>
-          <td>${escapeHTML(item.categorie)}</td>
           <td>
             <span class="tag tag-source-${item.source}">
               ${escapeHTML(formatSource(item.source))}
             </span>
           </td>
-          <td>${escapeHTML(item.registre)}</td>
           <td>${escapeHTML(item.definition)}</td>
           <td>${escapeHTML(item.note)}</td>
         </tr>
@@ -545,7 +541,7 @@
     function showInitialMessage() {
       resultsBody.innerHTML = `
         <tr>
-          <td colspan="8" class="empty">
+          <td colspan="6" class="empty">
             Entrez un mot-clé pour lancer la recherche.
           </td>
         </tr>
@@ -610,7 +606,7 @@
       } catch (error) {
         resultsBody.innerHTML = `
           <tr>
-            <td colspan="8" class="empty">
+            <td colspan="6" class="empty">
               Impossible de charger les données. Vérifiez que les fichiers CSV existent bien dans le dossier <code>data/</code>.
             </td>
           </tr>

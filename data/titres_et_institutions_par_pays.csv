@@ -1,5 +1,4 @@
 pays,chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
-pays,chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
 美国,总统,Président des États-Unis,titre,formel,Chef de l’État et chef de l’exécutif des États-Unis,institutions comparées,le Président,国家元首兼行政首脑；不要与法国总统或中国国家主席简单等同,whitehouse.gov,2026-04
 美国,国务院,Département d’État des États-Unis,institution,formel,Département fédéral chargé des affaires étrangères,institutions comparées,le Département d’État,官方名称为 Department of State；不要机械译作 ministère des Affaires étrangères,state.gov,2026-04
 美国,国务卿,Secrétaire d’État des États-Unis,titre,formel,Chef du Département d’État et principal responsable de la diplomatie américaine,institutions comparées,la / le Secrétaire d’État,官方名称为 Secretary of State；不要按中文字面误译为 ministre des Affaires étrangères,state.gov,2026-04
@@ -28,6 +27,8 @@ pays,chinois,francais,categorie,registre,definition,contexte,equivalent_interpre
 日本,首相,Premier ministre du Japon,titre,formel,Chef du gouvernement du Japon,institutions comparées,la / le Premier ministre,对应内阁总理大臣；不要按中文“首相”另造法语词,kantei.go.jp,2026-04
 日本,外务省,Ministère des Affaires étrangères du Japon,institution,formel,Ministère japonais chargé des affaires étrangères,institutions comparées,le ministère des Affaires étrangères,日文正式名称为 外務省；法语主条目采用功能对应,mofa.go.jp,2026-04
 日本,外务大臣,ministre des Affaires étrangères du Japon,titre,formel,Membre du gouvernement japonais chargé des affaires étrangères,institutions comparées,la / le ministre des Affaires étrangères,日文正式名称为 外務大臣；中文“外相”不宜单独作为法语标准条目,mofa.go.jp,2026-04
+日本,皇太子,Prince héritier du Japon,titre,formel,Héritier du trône impérial japonais,institutions comparées,le prince héritier,对应 皇太子,kunaicho.go.jp,2026-04
+
 
 摩洛哥,国王,Roi du Maroc,titre,formel,Chef de l’État du Royaume du Maroc,institutions comparées,le Roi,国家元首；法文官方语境常见 Sa Majesté le Roi,maroc.ma,2026-04
 摩洛哥,政府首脑,Chef du gouvernement du Maroc,titre,formel,Chef du gouvernement marocain,institutions comparées,la / le Chef du gouvernement,摩洛哥官方法文常用 Chef du gouvernement，不宜机械改写为 Premier ministre,maroc.ma,2026-04
@@ -38,3 +39,30 @@ pays,chinois,francais,categorie,registre,definition,contexte,equivalent_interpre
 中非共和国,总理,Premier ministre, Chef du gouvernement,titre,formel,Chef du gouvernement de la République centrafricaine,institutions comparées,la / le Premier ministre,官方法文常连用 Premier ministre, Chef du gouvernement,gouvernement.cf,2026-04
 中非共和国,外交部,Ministère des Affaires étrangères et des Centrafricains de l’Étranger,institution,formel,Ministère chargé des affaires étrangères de la République centrafricaine,institutions comparées,le ministère des Affaires étrangères,正式名称含“海外中非公民”部分，建议完整保留,gouvernement.cf,2026-04
 中非共和国,外交部长,ministre des Affaires étrangères et des Centrafricains de l’Étranger,titre,formel,Membre du gouvernement centrafricain chargé des affaires étrangères,institutions comparées,la / le ministre des Affaires étrangères,正式职称含“Centrafricains de l’Étranger”，不宜随意删减,gouvernement.cf,2026-04
+pays,chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
+美国,副国务卿,Secrétaire d’État adjoint,titre,formel,Adjoint du Secrétaire d’État des États-Unis,institutions comparées,le secrétaire adjoint,官方英语为 Deputy Secretary of State；对应美国外交系统高层,state.gov,2026-04
+美国,助理国务卿,Secrétaire d’État adjoint aux affaires...,titre,formel,Responsable d’un domaine spécifique au Département d’État,institutions comparées,le secrétaire adjoint,对应 Assistant Secretary；通常需补领域名称,state.gov,2026-04
+
+英国,国务大臣,ministre d’État,titre,formel,Membre du gouvernement britannique de rang intermédiaire,institutions comparées,la / le ministre d’État,对应 Minister of State；低于 Secretary of State,gov.uk,2026-04
+英国,外交国务大臣,ministre d’État aux Affaires étrangères,titre,formel,Membre du Foreign Office chargé d’un domaine spécifique,institutions comparées,la / le ministre d’État,属于外交系统次级职务,gov.uk,2026-04
+英国,外交国务秘书,secrétaire d’État aux Affaires étrangères,titre,formel,Chef du Foreign Office,institutions comparées,la / le secrétaire d’État,对应最高外交负责人；不要与 ministre 混淆,gov.uk,2026-04
+英国,王储,Prince héritier,titre,formel,Héritier du trône britannique,institutions comparées,le prince héritier,对应 Crown Prince；英国常用 Prince of Wales,royal.uk,2026-04
+
+
+法国,国务秘书,secrétaire d’État,titre,formel,Membre du gouvernement subordonné à un ministre,institutions comparées,la / le secrétaire d’État,低于 ministre；属于政府成员,gouvernement.fr,2026-04
+法国,外交国务秘书,secrétaire d’État auprès du ministre de l’Europe et des Affaires étrangères,titre,formel,Membre du gouvernement rattaché au ministère des Affaires étrangères,institutions comparées,la / le secrétaire d’État,属于外交部体系,gouvernement.fr,2026-04
+
+德国,国务部长,ministre d’État,titre,formel,Membre du gouvernement fédéral ou rattaché à un ministère,institutions comparées,la / le ministre d’État,德文为 Staatsminister；不同于法国 secrétaire d’État,bundesregierung.de,2026-04
+德国,外交国务部长,ministre d’État auprès du ministère fédéral des Affaires étrangères,titre,formel,Membre du ministère fédéral des Affaires étrangères,institutions comparées,la / le ministre d’État,属于外交部体系,bundesregierung.de,2026-04
+
+中国,副部长,vice-ministre,titre,formel,Adjoint d’un ministre,institutions comparées,la / le vice-ministre,标准行政层级表达,gov.cn,2026-04
+中国,外交部副部长,vice-ministre des Affaires étrangères,titre,formel,Adjoint du ministre des Affaires étrangères,institutions comparées,la / le vice-ministre,属于外交部体系,fmprc.gov.cn,2026-04
+
+日本,副大臣,vice-ministre,titre,formel,Adjoint d’un ministre dans le gouvernement japonais,institutions comparées,la / le vice-ministre,对应日文 副大臣,kantei.go.jp,2026-04
+日本,政务官,secrétaire parlementaire,titre,formel,Membre du gouvernement assistant un ministre,institutions comparées,la / le secrétaire parlementaire,对应日文 政务官,kantei.go.jp,2026-04
+
+摩洛哥,国务秘书,secrétaire d’État,titre,formel,Membre du gouvernement subordonné à un ministre,institutions comparées,la / le secrétaire d’État,制度接近法国体系,maroc.ma,2026-04
+摩洛哥,王储,Prince héritier du Maroc,titre,formel,Héritier du trône marocain,institutions comparées,le prince héritier,君主制国家标准表达,maroc.ma,2026-04
+
+中非共和国,国务部长,ministre d’État,titre,formel,Membre du gouvernement avec un rang politique élevé,institutions comparées,la / le ministre d’État,法语国家常见用法,gouvernement.cf,2026-04
+

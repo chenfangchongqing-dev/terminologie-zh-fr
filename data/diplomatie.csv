@@ -14,3 +14,24 @@ chinois,francais,categorie,registre,definition,contexte,equivalent_interpretatio
 中国驻欧盟使团,Mission de la République populaire de Chine auprès de l’Union européenne,institution,formel,Représentation de la Chine auprès de l’UE,diplomatie régionale,,Employer mission et non ambassade,fmprc.gov.cn,2026-04
 中国驻东盟使团,Mission de la République populaire de Chine auprès de l’ASEAN,institution,formel,Représentation de la Chine auprès de l’ASEAN,diplomatie régionale,,On peut ajouter en note : ANASE = forme française usuelle,fmprc.gov.cn,2026-04
 中国驻非盟使团,Mission de la République populaire de Chine auprès de l’Union africaine,institution,formel,Représentation de la Chine auprès de l’Union africaine,diplomatie régionale,,“非盟” = Union africaine,fmprc.gov.cn,2026-04
+chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
+大使,Ambassadeur,titre,formel,Représentant officiel d’un État auprès d’un autre État,diplomatie,l’ambassadeur,,ONU,2026-04
+特命全权大使,Ambassadeur extraordinaire et plénipotentiaire,titre,formel,Titre officiel complet d’un ambassadeur,diplomatie,l’ambassadeur,口译中通常简化,ONU,2026-04
+常驻代表,Représentant permanent,titre,formel,Représentant d’un État auprès d’une organisation internationale,multilatéral,le représentant,,ONU,2026-04
+副常驻代表,Représentant permanent adjoint,titre,formel,Adjoint du représentant permanent,multilatéral,l’adjoint,,ONU,2026-04
+总领事,Consul général,titre,formel,Chef d’un consulat général,consulaire,le consul général,,site officiel,2026-04
+副总领事,Consul général adjoint,titre,formel,Adjoint du consul général,consulaire,l’adjoint,,site officiel,2026-04
+领事,Consul,titre,formel,Fonctionnaire consulaire,consulaire,le consul,,site officiel,2026-04
+副领事,Vice-consul,titre,formel,Adjoint du consul,consulaire,le vice-consul,,site officiel,2026-04
+公使,Ministre,titre,formel,Diplomate de rang inférieur à ambassadeur,diplomatie,le ministre,,用法较少（现代外交体系）,ONU,2026-04
+公使衔参赞,Ministre-conseiller,titre,formel,Conseiller ayant rang de ministre,diplomatie,le conseiller,,标准译法固定,ONU,2026-04
+参赞,Conseiller,titre,formel,Diplomate chargé de missions spécifiques,diplomatie,le conseiller,,常见职务,ONU,2026-04
+一等秘书,Premier secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le premier secrétaire,,等级体系用法固定,ONU,2026-04
+二等秘书,Deuxième secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le secrétaire,,口译中可简化,ONU,2026-04
+三等秘书,Troisième secrétaire,titre,formel,Diplomate débutant,diplomatie,le secrétaire,,口译中通常不区分级别,ONU,2026-04
+随员,Attaché,titre,formel,Diplomate chargé de fonctions spécifiques,diplomatie,l’attaché,,如 attaché culturel / militaire,ONU,2026-04
+武官,Attaché militaire,titre,formel,Attaché chargé des affaires militaires,diplomatie,l’attaché militaire,,固定搭配,ONU,2026-04
+文化参赞,Conseiller culturel,titre,formel,Responsable des affaires culturelles,diplomatie,le conseiller culturel,,常见岗位,site officiel,2026-04
+新闻参赞,Conseiller de presse,titre,formel,Responsable de la communication et des médias,diplomatie,le conseiller presse,,注意不是 “journaliste”,site officiel,2026-04
+商务参赞,Conseiller commercial,titre,formel,Responsable des affaires économiques et commerciales,diplomatie,le conseiller commercial,,商务系统常用,site officiel,2026-04
+特使,Envoyé spécial,titre,formel,Représentant chargé d’une mission spécifique,diplomatie,l’envoyé,,非常高频,ONU,2026-04

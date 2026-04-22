@@ -1,36 +1,36 @@
 chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
-中华人民共和国驻外外交机构,missions diplomatiques de la République populaire de Chine à l’étranger,institution,formel,Ensemble des représentations diplomatiques chinoises à l’étranger,diplomatie,,Terme générique,mfa.gov.cn,2026-04
-使馆,ambassade,institution,formel,Représentation diplomatique d’un État auprès d’un autre État,diplomatie,,À distinguer de consulat,mfa.gov.cn,2026-04
-领事馆,consulat,institution,formel,Représentation consulaire,consulaire,,Terme générique,mfa.gov.cn,2026-04
-总领事馆,consulat général,institution,formel,Consulat dirigé par un consul général,consulaire,,À employer quand il s’agit d’un consulat général,mfa.gov.cn,2026-04
-驻外团、处,Missions aux organisations internationales et bureaux à l’étranger,institution,formel,Catégorie regroupant les missions chinoises auprès des organisations internationales et certains bureaux à l’étranger,multilatéral,,Reprendre l’intitulé du site français du MAE chinois,fmprc.gov.cn,2026-04
-中华人民共和国常驻联合国代表团,Mission permanente de la République populaire de Chine auprès des Nations Unies,institution,formel,Représentation permanente de la Chine auprès de l’ONU,multilatéral,,Formulation officielle,fmprc.gov.cn,2026-04
-中国常驻联合国日内瓦办事处和瑞士其他国际组织代表团,Mission permanente de la République populaire de Chine auprès de l’Office des Nations Unies à Genève et des autres organisations internationales en Suisse,institution,formel,Représentation permanente de la Chine à Genève et auprès d’autres organisations internationales en Suisse,multilatéral,,“瑞士” et non “水师”,fmprc.gov.cn,2026-04
-中国常驻维也纳联合国和其他国际组织代表团,Mission permanente de la République populaire de Chine auprès de l’Office des Nations Unies et des autres organisations internationales à Vienne,institution,formel,Représentation permanente de la Chine à Vienne,multilatéral,,Formulation officielle,fmprc.gov.cn,2026-04
-中国驻欧盟使团,Mission de la République populaire de Chine auprès de l’Union européenne,institution,formel,Représentation de la Chine auprès de l’Union européenne,diplomatie régionale,,Employer mission et non ambassade,fmprc.gov.cn,2026-04
-中国驻东盟使团,Mission de la République populaire de Chine auprès de l’ASEAN,institution,formel,Représentation de la Chine auprès de l’ASEAN,diplomatie régionale,,On peut ajouter en cours l’équivalent français usuel « ANASE » en note pédagogique,fmprc.gov.cn,2026-04
-中国驻非盟使团,Mission de la République populaire de Chine auprès de l’Union africaine,institution,formel,Représentation de la Chine auprès de l’Union africaine,diplomatie régionale,,Employer Union africaine pour “非盟”,fmprc.gov.cn,2026-04
-大使,Ambassadeur,titre,formel,Représentant officiel d’un État auprès d’un autre État,diplomatie,l’ambassadeur,Dans l’usage courant et en interprétation on emploie généralement « Ambassadeur » ; la forme complète officielle est « Ambassadeur extraordinaire et plénipotentiaire ».,ONU,2026-04
-特命全权大使,Ambassadeur extraordinaire et plénipotentiaire,titre,formel,Titre officiel complet d’un ambassadeur,diplomatie,l’ambassadeur,Titre officiel complet ; en contexte oral ou en interprétation, on abrège généralement en « Ambassadeur ».,ONU,2026-04
-常驻代表,Représentant permanent,titre,formel,Représentant d’un État auprès d’une organisation internationale,multilatéral,le représentant,À distinguer de représentant au sens général ; ici il s’agit d’un titre diplomatique,ONU,2026-04
-副常驻代表,Représentant permanent adjoint,titre,formel,Adjoint du représentant permanent,multilatéral,l’adjoint,Titre usuel dans les missions permanentes auprès des organisations internationales,ONU,2026-04
-总领事,Consul général,titre,formel,Chef d’un consulat général,consulaire,le consul général,Titre consulaire,site officiel,2026-04
-副总领事,Consul général adjoint,titre,formel,Adjoint du consul général,consulaire,l’adjoint,Titre consulaire,site officiel,2026-04
-领事,Consul,titre,formel,Fonctionnaire consulaire,consulaire,le consul,Titre consulaire,site officiel,2026-04
-副领事,Vice-consul,titre,formel,Adjoint du consul,consulaire,le vice-consul,Titre consulaire,site officiel,2026-04
-公使,Ministre,titre,formel,Diplomate de rang inférieur à ambassadeur,diplomatie,le ministre,En contexte diplomatique « Ministre » ne signifie pas « ministre » au sens de membre du gouvernement ; il correspond ici à « 公使 ». Risque élevé de contresens.,ONU,2026-04
-公使衔参赞,Ministre-conseiller,titre,formel,Conseiller ayant rang de ministre,diplomatie,le conseiller,Titre diplomatique fixe ; à ne pas confondre avec une fonction gouvernementale.,ONU,2026-04
-参赞,Conseiller,titre,formel,Diplomate chargé de missions spécifiques,diplomatie,le conseiller,Titre fréquent dans les ambassades et consulats,ONU,2026-04
-一等秘书,Premier secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le secrétaire,En interprétation le niveau est souvent neutralisé et rendu simplement par « secrétaire » si la distinction hiérarchique n’est pas pertinente.,ONU,2026-04
-二等秘书,Deuxième secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le secrétaire,En interprétation le niveau est souvent neutralisé et rendu simplement par « secrétaire » si la distinction hiérarchique n’est pas pertinente.,ONU,2026-04
-三等秘书,Troisième secrétaire,titre,formel,Diplomate débutant,diplomatie,le secrétaire,En interprétation le niveau est souvent neutralisé et rendu simplement par « secrétaire » si la distinction hiérarchique n’est pas pertinente.,ONU,2026-04
-随员,Attaché,titre,formel,Diplomate chargé de fonctions spécifiques,diplomatie,l’attaché,Désigne souvent une fonction spécialisée plutôt qu’un simple rang ; voir aussi attaché militaire.,ONU,2026-04
-武官,Attaché militaire,titre,formel,Attaché chargé des affaires militaires,diplomatie,l’attaché militaire,« Attaché » renvoie ici à une spécialité fonctionnelle ; il ne s’agit pas d’un simple niveau hiérarchique.,ONU,2026-04
-文化参赞,Conseiller culturel,fonction,formel,Responsable des affaires culturelles,diplomatie,le conseiller culturel,Fonction spécialisée ; à distinguer des grades diplomatiques proprement dits.,site officiel,2026-04
-新闻参赞,Conseiller de presse,fonction,formel,Responsable de la communication et des médias,diplomatie,le conseiller de presse,Ne pas traduire par « journaliste » ; fonction diplomatique spécialisée.,site officiel,2026-04
-商务参赞,Conseiller commercial,fonction,formel,Responsable des affaires économiques et commerciales,diplomatie économique,le conseiller commercial,Fonction spécialisée dans le champ économique et commercial.,site officiel,2026-04
-特使,Envoyé spécial,titre,formel,Représentant chargé d’une mission spécifique,diplomatie,l’envoyé,Titre fréquent dans la diplomatie contemporaine,ONU,2026-04
-地区经济处,service économique régional,service,formel,Service chargé des questions économiques à l’échelle régionale,diplomatie économique,le service économique,Il s’agit d’un service et non d’un grade diplomatique.,cn.ambafrance.org,2026-04
-科技与高校合作处,service de coopération scientifique et universitaire,service,formel,Service chargé de la coopération scientifique et universitaire,coopération,le service de coopération,Il s’agit d’un service et non d’un titre diplomatique.,cn.ambafrance.org,2026-04
-地区主任（女）,directrice régionale,fonction,formel,Responsable régionale d’un organisme ou d’un service,fonction institutionnelle,la directrice régionale,Fonction administrative ou institutionnelle, pas nécessairement diplomatique.,cn.ambafrance.org,2026-04
-地区主任（男）,directeur régional,fonction,formel,Responsable régional d’un organisme ou d’un service,fonction institutionnelle,le directeur régional,Fonction administrative ou institutionnelle, pas nécessairement diplomatique.,cn.ambafrance.org,2026-04
+中华人民共和国驻外外交机构,missions diplomatiques de la République populaire de Chine à l’étranger,institution,formel,Ensemble des représentations diplomatiques chinoises à l’étranger,diplomatie,,总称，可用于说明性文字,mfa.gov.cn,2026-04
+使馆,ambassade,institution,formel,Représentation diplomatique d’un État auprès d’un autre État,diplomatie,,注意与 consulat 区分,mfa.gov.cn,2026-04
+领事馆,consulat,institution,formel,Représentation consulaire,consulaire,,泛称,mfa.gov.cn,2026-04
+总领事馆,consulat général,institution,formel,Consulat dirigé par un consul général,consulaire,,指总领馆时应使用这一说法,mfa.gov.cn,2026-04
+驻外团、处,Missions aux organisations internationales et bureaux à l’étranger,institution,formel,Catégorie regroupant les missions chinoises auprès des organisations internationales et certains bureaux à l’étranger,multilatéral,,建议沿用中国外交部法文页面栏目名称,fmprc.gov.cn,2026-04
+中华人民共和国常驻联合国代表团,Mission permanente de la République populaire de Chine auprès des Nations Unies,institution,formel,Représentation permanente de la Chine auprès de l’ONU,multilatéral,,正式名称,fmprc.gov.cn,2026-04
+中国常驻联合国日内瓦办事处和瑞士其他国际组织代表团,Mission permanente de la République populaire de Chine auprès de l’Office des Nations Unies à Genève et des autres organisations internationales en Suisse,institution,formel,Représentation permanente de la Chine à Genève et auprès d’autres organisations internationales en Suisse,multilatéral,,正式名称,fmprc.gov.cn,2026-04
+中国常驻维也纳联合国和其他国际组织代表团,Mission permanente de la République populaire de Chine auprès de l’Office des Nations Unies et des autres organisations internationales à Vienne,institution,formel,Représentation permanente de la Chine à Vienne,multilatéral,,正式名称,fmprc.gov.cn,2026-04
+中国驻欧盟使团,Mission de la République populaire de Chine auprès de l’Union européenne,institution,formel,Représentation de la Chine auprès de l’Union européenne,diplomatie régionale,,此处应使用 mission，不用 ambassade,fmprc.gov.cn,2026-04
+中国驻东盟使团,Mission de la République populaire de Chine auprès de l’ASEAN,institution,formel,Représentation de la Chine auprès de l’ASEAN,diplomatie régionale,,教学中可补充法语常见对应 ANASE,fmprc.gov.cn,2026-04
+中国驻非盟使团,Mission de la République populaire de Chine auprès de l’Union africaine,institution,formel,Représentation de la Chine auprès de l’Union africaine,diplomatie régionale,,“非盟”对应 Union africaine,fmprc.gov.cn,2026-04
+大使,Ambassadeur,titre,formel,Représentant officiel d’un État auprès d’un autre État,diplomatie,l’ambassadeur,正式文件可用全称；实际使用和口译中通常直接说 Ambassadeur,ONU,2026-04
+特命全权大使,Ambassadeur extraordinaire et plénipotentiaire,titre,formel,Titre officiel complet d’un ambassadeur,diplomatie,l’ambassadeur,这是正式全称；口译或口头场合通常简化为 Ambassadeur,ONU,2026-04
+常驻代表,Représentant permanent,titre,formel,Représentant d’un État auprès d’une organisation internationale,multilatéral,le représentant,这里是正式外交职衔，不是普通意义上的“代表”,ONU,2026-04
+副常驻代表,Représentant permanent adjoint,titre,formel,Adjoint du représentant permanent,multilatéral,l’adjoint,多用于常驻国际组织代表团,ONU,2026-04
+总领事,Consul général,titre,formel,Chef d’un consulat général,consulaire,le consul général,领事系统正式职衔,site officiel,2026-04
+副总领事,Consul général adjoint,titre,formel,Adjoint du consul général,consulaire,l’adjoint,领事系统正式职衔,site officiel,2026-04
+领事,Consul,titre,formel,Fonctionnaire consulaire,consulaire,le consul,领事系统正式职衔,site officiel,2026-04
+副领事,Vice-consul,titre,formel,Adjoint du consul,consulaire,le vice-consul,领事系统正式职衔,site officiel,2026-04
+公使,Ministre,titre,formel,Diplomate de rang inférieur à ambassadeur,diplomatie,le ministre,外交语境中 Ministre 指“公使”，不是“部长”，注意避免误译,ONU,2026-04
+公使衔参赞,Ministre-conseiller,titre,formel,Conseiller ayant rang de ministre,diplomatie,le conseiller,固定外交职衔，不要按政府职务理解,ONU,2026-04
+参赞,Conseiller,titre,formel,Diplomate chargé de missions spécifiques,diplomatie,le conseiller,使领馆常见职衔,ONU,2026-04
+一等秘书,Premier secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le secrétaire,口译中如无必要区分等级，通常可简化为 secrétaire,ONU,2026-04
+二等秘书,Deuxième secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le secrétaire,口译中如无必要区分等级，通常可简化为 secrétaire,ONU,2026-04
+三等秘书,Troisième secrétaire,titre,formel,Diplomate débutant,diplomatie,le secrétaire,口译中如无必要区分等级，通常可简化为 secrétaire,ONU,2026-04
+随员,Attaché,titre,formel,Diplomate chargé de fonctions spécifiques,diplomatie,l’attaché,通常带有职能色彩，不只是单纯等级；可参见武官等用法,ONU,2026-04
+武官,Attaché militaire,titre,formel,Attaché chargé des affaires militaires,diplomatie,l’attaché militaire,这里的 attaché 表示职能岗位，不只是等级,ONU,2026-04
+文化参赞,Conseiller culturel,fonction,formel,Responsable des affaires culturelles,diplomatie,le conseiller culturel,属于专门岗位，和等级职衔要区分,site officiel,2026-04
+新闻参赞,Conseiller de presse,fonction,formel,Responsable de la communication et des médias,diplomatie,le conseiller de presse,不要误译成 journaliste，这是外交岗位名称,site officiel,2026-04
+商务参赞,Conseiller commercial,fonction,formel,Responsable des affaires économiques et commerciales,diplomatie économique,le conseiller commercial,属于经贸领域专门岗位,site officiel,2026-04
+特使,Envoyé spécial,titre,formel,Représentant chargé d’une mission spécifique,diplomatie,l’envoyé,当代外交中高频使用,ONU,2026-04
+地区经济处,service économique régional,service,formel,Service chargé des questions économiques à l’échelle régionale,diplomatie économique,le service économique,这是部门名称，不是外交职衔,cn.ambafrance.org,2026-04
+科技与高校合作处,service de coopération scientifique et universitaire,service,formel,Service chargé de la coopération scientifique et universitaire,coopération,le service de coopération,这是部门名称，不是外交职衔,cn.ambafrance.org,2026-04
+地区主任（女）,directrice régionale,fonction,formel,Responsable régionale d’un organisme ou d’un service,fonction institutionnelle,la directrice régionale,这是机构或部门岗位，不一定属于外交官职衔,cn.ambafrance.org,2026-04
+地区主任（男）,directeur régional,fonction,formel,Responsable régional d’un organisme ou d’un service,fonction institutionnelle,le directeur régional,这是机构或部门岗位，不一定属于外交官职衔,cn.ambafrance.org,2026-04

@@ -2,3 +2,15 @@ chinois,francais,categorie,registre,definition,note,source,date
 外交部,Ministère des Affaires étrangères,institution,formel,Organe chargé des relations extérieures,,site officiel,2026
 大使,Ambassadeur,titre,formel,Représentant officiel d’un État,,ONU,2026
 领事馆,Consulat,institution,formel,Représentation consulaire,,,"2026"
+chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
+中华人民共和国驻外外交机构,missions diplomatiques de la République populaire de Chine à l’étranger,institution,formel,Ensemble des représentations diplomatiques chinoises à l’étranger,diplomatie,,Terme générique,mfa.gov.cn,2026-04
+使馆,ambassade,institution,formel,Représentation diplomatique d’un État auprès d’un autre État,diplomatie,,À distinguer de consulat,mfa.gov.cn,2026-04
+领事馆,consulat,institution,formel,Représentation consulaire,diplomatie,,Ne pas confondre avec consulat général,mfa.gov.cn,2026-04
+总领事馆,consulat général,institution,formel,Consulat dirigé par un consul général,diplomatie,,À employer quand il s’agit d’un consulat général,mfa.gov.cn,2026-04
+驻外团、处,Missions aux organisations internationales et bureaux à l’étranger,institution,formel,Catégorie regroupant les missions chinoises auprès des organisations internationales et certains bureaux à l’étranger,diplomatie,,Reprendre l’intitulé du site français du MAE chinois,fmprc.gov.cn,2026-04
+中华人民共和国常驻联合国代表团,Mission permanente de la République populaire de Chine auprès des Nations Unies,institution,formel,Représentation permanente de la Chine auprès de l’ONU,multilatéral,,Formulation officielle du site français,fmprc.gov.cn,2026-04
+中国常驻联合国日内瓦办事处和瑞士其他国际组织代表团,Mission permanente de la République populaire de Chine auprès de l’Office des Nations Unies à Genève et des autres organisations internationales en Suisse,institution,formel,Représentation permanente de la Chine à Genève et auprès d’autres organisations internationales en Suisse,multilatéral,,“瑞士” et non “水师”,fmprc.gov.cn,2026-04
+中国常驻维也纳联合国和其他国际组织代表团,Mission permanente de la République populaire de Chine auprès de l’Office des Nations Unies et des autres organisations internationales à Vienne,institution,formel,Représentation permanente de la Chine à Vienne,multilatéral,,Formulation du site français du MAE chinois,fmprc.gov.cn,2026-04
+中国驻欧盟使团,Mission de la République populaire de Chine auprès de l’Union européenne,institution,formel,Représentation de la Chine auprès de l’UE,diplomatie régionale,,Employer mission et non ambassade,fmprc.gov.cn,2026-04
+中国驻东盟使团,Mission de la République populaire de Chine auprès de l’ASEAN,institution,formel,Représentation de la Chine auprès de l’ASEAN,diplomatie régionale,,On peut ajouter en note : ANASE = forme française usuelle,fmprc.gov.cn,2026-04
+中国驻非盟使团,Mission de la République populaire de Chine auprès de l’Union africaine,institution,formel,Représentation de la Chine auprès de l’Union africaine,diplomatie régionale,,“非盟” = Union africaine,fmprc.gov.cn,2026-04

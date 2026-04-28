@@ -25,7 +25,7 @@ chinois,francais,categorie,registre,definition,contexte,equivalent_interpretatio
 二等秘书,Deuxième secrétaire,titre,formel,Diplomate de rang intermédiaire,diplomatie,le secrétaire,口译中通常可简化为 secrétaire,ONU,2026-04
 三等秘书,Troisième secrétaire,titre,formel,Diplomate débutant,diplomatie,le secrétaire,口译中通常可简化为 secrétaire,ONU,2026-04
 随员,Attaché,titre,formel,Diplomate chargé de fonctions spécifiques,diplomatie,l’attaché,通常表示职能岗位，不仅是等级,ONU,2026-04
-武官,Attaché militaire,titre,formel,Attaché chargé des affaires militaires,diplomatie,l’attaché militaire,属于职能岗位，不是单纯等级,ONU,2026-04
+武官/国防武官,Attaché militaire / Attaché de défense,titre,formel,Attaché chargé des affaires militaires,diplomatie,l’attaché militaire,属于职能岗位，不是单纯等级,ONU,2026-04
 文化参赞,Conseiller culturel,fonction,formel,Responsable des affaires culturelles,diplomatie,le conseiller culturel,属于岗位，不属于等级职衔,site officiel,2026-04
 新闻参赞,Conseiller de presse,fonction,formel,Responsable de la communication,diplomatie,le conseiller de presse,不要误译为 journaliste,site officiel,2026-04
 商务参赞,Conseiller commercial,fonction,formel,Responsable des affaires économiques,diplomatie économique,le conseiller commercial,属于经贸岗位,site officiel,2026-04
@@ -85,7 +85,6 @@ chinois,francais,categorie,registre,definition,contexte,equivalent_interpretatio
 国际刑事法院院长,président de la Cour pénale internationale,titre,formel,Président de la Cour pénale internationale,justice internationale,la présidente / le président de la CPI,对应国际刑事法院；不要与国际法院院长混淆,icc-cpi.int,2026-04
 国际刑事法院第一副院长,premier vice-président de la Cour pénale internationale,titre,formel,Premier vice-président de la Cour pénale internationale,justice internationale,le premier vice-président,对应 CPI 领导层体系,icc-cpi.int,2026-04
 国际刑事法院第二副院长,deuxième vice-président de la Cour pénale internationale,titre,formel,Deuxième vice-président de la Cour pénale internationale,justice internationale,le deuxième vice-président,对应 CPI 领导层体系,icc-cpi.int,2026-04
-chinois,francais,categorie,registre,definition,contexte,equivalent_interpretation,note,source,date
 联合国人权理事会,Conseil des droits de l’homme,institution,formel,Organe intergouvernemental des Nations Unies chargé de la promotion et de la protection des droits de l’homme,droits de l’homme,le Conseil des droits de l’homme,联合国人权机构；不要与“人权事务高级专员办事处”混淆,un.org,2026-04
 联合国人权理事会主席,président du Conseil des droits de l’homme,titre,formel,Président du Conseil des droits de l’homme,droits de l’homme,la présidence du Conseil,对应人权理事会，不是联合国秘书处职衔,un.org,2026-04
 联合国难民署,Haut Commissariat des Nations Unies pour les réfugiés (HCR),organisation internationale,formel,Organe des Nations Unies chargé de la protection des réfugiés et des personnes déplacées,réfugiés,le HCR,法语中最常直接用 HCR；不要按字面误解为普通“署”,unhcr.org,2026-04
@@ -102,4 +101,4 @@ chinois,francais,categorie,registre,definition,contexte,equivalent_interpretatio
 国际民航组织理事会,Conseil de l’OACI,institution,formel,Organe directeur permanent de l’Organisation de l’aviation civile internationale,aviation civile,le Conseil de l’OACI,对应 OACI 内部机构；不要与 Conseil européen 或 Conseil de l’Union européenne 混淆,icao.int,2026-04
 国际民航组织理事会主席,Président du Conseil de l’OACI,titre,formel,Président du Conseil de l’Organisation de l’aviation civile internationale,aviation civile,le Président du Conseil,对应 OACI 理事会，不是 OACI 秘书长,icao.int,2026-04
 国际民航组织秘书长,Secrétaire général de l’OACI,titre,formel,Chef du Secrétariat de l’Organisation de l’aviation civile internationale,aviation civile,le Secrétaire général de l’OACI,对应 OACI 秘书处负责人；不要与 Président du Conseil de l’OACI 混淆,icao.int,2026-04
-
+国际民航组织秘书长,Secrétaire général de l’OACI,titre,formel,Chef du Secrétariat de l’Organisation de l’aviation civile internationale,aviation civile,le Secrétaire général de l’OACI,对应 OACI 秘书处负责人；不要与 Président du Conseil de l’OACI 混淆,icao.int,2026-04

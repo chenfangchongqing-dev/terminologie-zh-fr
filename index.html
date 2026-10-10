@@ -75,6 +75,7 @@
     .field {
       display: flex;
       flex-direction: column;
+      min-width: 0;
       gap: 6px;
     }
 
@@ -89,7 +90,7 @@
       padding: 12px 14px;
       border: 1px solid #cfd8e3;
       border-radius: 12px;
-      font-size: 0.98rem;
+      font-size: 1rem;
       background: #fff;
       color: var(--text);
     }
@@ -197,17 +198,7 @@
       border-color: #cfe0ff;
     }
 
-    .tag-source-droit {
-      background: #f0fdf4;
-      color: #15803d;
-      border-color: #ccefd7;
-    }
 
-    .tag-source-economie {
-      background: #fff7ed;
-      color: #c2410c;
-      border-color: #fed7aa;
-    }
 
     .tag-source-institutions_comparees {
       background: #f3e8ff;
@@ -225,7 +216,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1450px;
+      min-width: 1490px;
       table-layout: fixed;
     }
 
@@ -303,6 +294,26 @@
         align-items: flex-start;
       }
     }
+
+    .load-status { color: #92400e; margin-top: 14px; }
+    button:disabled { cursor: wait; opacity: 0.65; }
+
+    @media (max-width: 640px) {
+      .container { padding: 16px 12px 28px; }
+      .hero { padding: 22px 18px; }
+      .panel { padding: 14px; }
+      .hero h1 { overflow-wrap: anywhere; }
+      .table-wrap { border: 0; background: transparent; overflow: visible; }
+      table, tbody { display: block; min-width: 0; width: 100%; }
+      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+      tbody tr { display: block; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+      tbody tr:last-child { margin-bottom: 0; }
+      tbody td:nth-child(n) { display: block; width: 100%; padding: 9px 12px; }
+      tbody td[data-label]::before { content: attr(data-label); display: block; font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-bottom: 3px; }
+      tbody td:last-child { border-bottom: 0; }
+      tbody td.empty { padding: 28px 16px; }
+      .tag { white-space: normal; }
+    }
   </style>
 </head>
 <body>
@@ -320,36 +331,32 @@
           <label for="searchInput">Recherche</label>
           <input
             type="text"
-            id="searchInput"
+            id="searchInput" disabled
             placeholder="Entrez un terme en chinois ou en français..."
           />
         </div>
 
         <div class="field">
           <label for="sourceFilter">Domaine</label>
-          <select id="sourceFilter">
+          <select id="sourceFilter" disabled>
             <option value="">Tous les domaines</option>
-            <option value="diplomatie">Diplomatie</option>
-            <option value="droit">Droit</option>
-            <option value="economie">Économie</option>
-            <option value="institutions_comparees">Institutions comparées</option>
           </select>
         </div>
 
         <div class="field">
           <label for="categoryFilter">Catégorie</label>
-          <select id="categoryFilter">
+          <select id="categoryFilter" disabled>
             <option value="">Toutes les catégories</option>
           </select>
         </div>
       </div>
 
       <div class="toolbar">
-        <div class="stats" id="stats">0 résultat</div>
+        <div class="stats" id="stats" role="status" aria-live="polite">Chargement…</div>
 
         <div class="buttons">
-          <button class="btn-secondary" id="resetBtn">Réinitialiser</button>
-          <button class="usage-toggle" id="usageToggle">📘 使用说明</button>
+          <button class="btn-secondary" id="resetBtn" disabled>Réinitialiser</button>
+          <button class="usage-toggle" id="usageToggle" aria-expanded="false" aria-controls="usageContent">📘 使用说明</button>
         </div>
       </div>
 
@@ -362,12 +369,8 @@
         </div>
       </div>
 
-      <div class="legend">
-        <span class="tag tag-source-diplomatie">Diplomatie</span>
-        <span class="tag tag-source-droit">Droit</span>
-        <span class="tag tag-source-economie">Économie</span>
-        <span class="tag tag-source-institutions_comparees">Institutions comparées</span>
-      </div>
+      <div class="legend" id="sourceLegend"></div>
+      <p class="load-status" id="loadStatus" role="alert" hidden></p>
     </section>
 
     <section class="panel">
@@ -375,18 +378,20 @@
         <table>
           <thead>
             <tr>
-              <th>Pays</th>
-              <th>中文</th>
-              <th>Français</th>
-              <th>Domaine</th>
-              <th>Définition</th>
-              <th>Note</th>
+              <th scope="col">Pays</th>
+              <th scope="col">中文</th>
+              <th scope="col">Français</th>
+              <th scope="col">Catégorie</th>
+              <th scope="col">Domaine</th>
+              <th scope="col">Registre</th>
+              <th scope="col">Définition</th>
+              <th scope="col">Note</th>
             </tr>
           </thead>
           <tbody id="resultsBody">
             <tr>
-              <td colspan="6" class="empty">
-                Entrez un mot-clé pour lancer la recherche.
+              <td colspan="8" class="empty">
+                Chargement des données…
               </td>
             </tr>
           </tbody>
@@ -395,221 +400,139 @@
     </section>
   </div>
 
+  <script src="js/terminology.js"></script>
   <script>
     const files = [
-      { path: "data/diplomatie.csv", source: "diplomatie" },
-      { path: "data/droit.csv", source: "droit" },
-      { path: "data/economie.csv", source: "economie" },
-      { path: "data/titres_et_institutions_par_pays.csv", source: "institutions_comparees" }
+      { path: "data/diplomatie.csv", source: "diplomatie", label: "Diplomatie" },
+      { path: "data/titres_et_institutions_par_pays.csv", source: "institutions_comparees", label: "Institutions comparées" }
     ];
-
     let allData = [];
-
     const searchInput = document.getElementById("searchInput");
     const sourceFilter = document.getElementById("sourceFilter");
+    const categoryFilter = document.getElementById("categoryFilter");
     const resultsBody = document.getElementById("resultsBody");
     const stats = document.getElementById("stats");
     const resetBtn = document.getElementById("resetBtn");
     const usageToggle = document.getElementById("usageToggle");
     const usageContent = document.getElementById("usageContent");
-
-    function parseCSVLine(line) {
-      const result = [];
-      let current = "";
-      let inQuotes = false;
-
-      for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        const next = line[i + 1];
-
-        if (char === '"') {
-          if (inQuotes && next === '"') {
-            current += '"';
-            i++;
-          } else {
-            inQuotes = !inQuotes;
-          }
-        } else if (char === "," && !inQuotes) {
-          result.push(current.trim());
-          current = "";
-        } else {
-          current += char;
-        }
-      }
-
-      result.push(current.trim());
-      return result;
-    }
+    const loadStatus = document.getElementById("loadStatus");
 
     async function loadCSV(fileInfo) {
       const response = await fetch(fileInfo.path);
-      const text = await response.text();
-      const lines = text.split(/\r?\n/).filter(line => line.trim() !== "");
-
-      if (lines.length <= 1) return [];
-
-      const headers = parseCSVLine(lines[0]).map(h => h.toLowerCase());
-
-      return lines.slice(1).map(line => {
-        const cols = parseCSVLine(line);
-        const row = {};
-        headers.forEach((header, index) => {
-          row[header] = cols[index] ? cols[index].trim() : "";
-        });
-
-        return {
-          pays: row.pays || "",
-          chinois: row.chinois || "",
-          francais: row.francais || "",
-          categorie: row.categorie || "",
-          registre: row.registre || "",
-          definition: row.definition || "",
-          note: row.note || "",
-          source: fileInfo.source
-        };
-      });
+      if (!response.ok) throw new Error(`${fileInfo.path}: HTTP ${response.status}`);
+      const data = Terminology.parseDataset(await response.text(), fileInfo.source);
+      if (!data.length) throw new Error(`${fileInfo.path}: no entries`);
+      return data;
     }
 
     function formatSource(source) {
-      if (source === "diplomatie") return "Diplomatie";
-      if (source === "droit") return "Droit";
-      if (source === "economie") return "Économie";
-      if (source === "institutions_comparees") return "Institutions comparées";
-      return source;
+      return files.find(file => file.source === source)?.label || source;
     }
 
     function fillCategoryOptions(data) {
-      const categories = [...new Set(
-        data.map(item => item.categorie).filter(Boolean)
-      )].sort((a, b) => a.localeCompare(b, "fr"));
+      const categories = [...new Set(data.map(item => item.categorie).filter(Boolean))]
+        .sort((a, b) => a.localeCompare(b, "fr"));
+      categoryFilter.innerHTML = '<option value="">Toutes les catégories</option>';
+      categories.forEach(category => categoryFilter.add(new Option(category, category)));
+    }
 
-      categoryFilter.innerHTML = `<option value="">Toutes les catégories</option>`;
-      categories.forEach(cat => {
-        const option = document.createElement("option");
-        option.value = cat;
-        option.textContent = cat;
-        categoryFilter.appendChild(option);
-      });
+    function fillSourceOptions(data) {
+      const available = files.filter(file => data.some(item => item.source === file.source));
+      sourceFilter.innerHTML = '<option value="">Tous les domaines</option>';
+      available.forEach(file => sourceFilter.add(new Option(file.label, file.source)));
+      document.getElementById("sourceLegend").innerHTML = available.map(file =>
+        `<span class="tag tag-source-${file.source}">${escapeHTML(file.label)}</span>`
+      ).join("");
     }
 
     function escapeHTML(value) {
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+      return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function showMessage(message) {
+      resultsBody.innerHTML = `<tr><td colspan="8" class="empty">${escapeHTML(message)}</td></tr>`;
     }
 
     function renderTable(data) {
+      stats.textContent = `${data.length} résultat${data.length > 1 ? "s" : ""} / ${allData.length} entrées`;
       if (!data.length) {
-        resultsBody.innerHTML = `
-          <tr>
-            <td colspan="6" class="empty">
-              Aucun résultat. Essayez un autre mot-clé ou modifiez les filtres.
-            </td>
-          </tr>
-        `;
-        stats.textContent = "0 résultat";
+        showMessage("Aucun résultat. Essayez un autre mot-clé ou modifiez les filtres.");
         return;
       }
-
       resultsBody.innerHTML = data.map((item, index) => `
         <tr data-index="${index}">
-          <td>${escapeHTML(item.pays || "")}</td>
-          <td class="term-zh">${escapeHTML(item.chinois)}</td>
-          <td class="term-fr">${escapeHTML(item.francais)}</td>
-          <td>
-            <span class="tag tag-source-${item.source}">
-              ${escapeHTML(formatSource(item.source))}
-            </span>
-          </td>
-          <td>${escapeHTML(item.definition)}</td>
-          <td>${escapeHTML(item.note)}</td>
+          <td data-label="Pays">${escapeHTML(item.pays || "—")}</td>
+          <td data-label="中文" class="term-zh" lang="zh">${escapeHTML(item.chinois)}</td>
+          <td data-label="Français" class="term-fr">${escapeHTML(item.francais)}</td>
+          <td data-label="Catégorie">${escapeHTML(item.categorie)}</td>
+          <td data-label="Domaine"><span class="tag tag-source-${item.source}">${escapeHTML(formatSource(item.source))}</span></td>
+          <td data-label="Registre">${escapeHTML(item.registre)}</td>
+          <td data-label="Définition">${escapeHTML(item.definition)}</td>
+          <td data-label="Note">${escapeHTML(item.note)}</td>
         </tr>
       `).join("");
-
-      stats.textContent = `${data.length} résultat${data.length > 1 ? "s" : ""}`;
-
-      document.querySelectorAll("#resultsBody tr").forEach(row => {
-        row.addEventListener("click", () => {
-          document.querySelectorAll("#resultsBody tr").forEach(r => r.classList.remove("active"));
-          row.classList.add("active");
-        });
-      });
     }
 
     function showInitialMessage() {
-      resultsBody.innerHTML = `
-        <tr>
-          <td colspan="6" class="empty">
-            Entrez un mot-clé pour lancer la recherche.
-          </td>
-        </tr>
-      `;
-      stats.textContent = "0 résultat";
+      showMessage("Entrez un mot-clé ou choisissez un domaine ou une catégorie pour lancer la recherche.");
+      stats.textContent = `${allData.length} entrées chargées`;
     }
 
     function applyFilters() {
-      const keyword = searchInput.value.trim().toLowerCase();
-      const sourceValue = sourceFilter.value;
-
-      if (!keyword && !sourceValue && !categoryValue) {
+      const keyword = searchInput.value.trim();
+      const source = sourceFilter.value;
+      const category = categoryFilter.value;
+      if (!keyword && !source && !category) {
         showInitialMessage();
         return;
       }
-
-      const filtered = allData.filter(item => {
-        const inKeyword =
-          !keyword ||
-          item.pays.toLowerCase().includes(keyword) ||
-          item.chinois.toLowerCase().includes(keyword) ||
-          item.francais.toLowerCase().includes(keyword) ||
-          item.definition.toLowerCase().includes(keyword) ||
-          item.note.toLowerCase().includes(keyword);
-
-        const inSource = !sourceValue || item.source === sourceValue;
-
-        return inKeyword && inSource;
-      });
-
-      renderTable(filtered);
+      renderTable(Terminology.filterEntries(allData, { keyword, source, category }));
     }
+
+    // Usage help remains available even when a data file fails to load.
+    usageToggle.addEventListener("click", () => {
+      const expanded = usageToggle.getAttribute("aria-expanded") !== "true";
+      usageToggle.setAttribute("aria-expanded", String(expanded));
+      usageContent.style.display = expanded ? "block" : "none";
+    });
+    searchInput.addEventListener("input", applyFilters);
+    sourceFilter.addEventListener("change", applyFilters);
+    categoryFilter.addEventListener("change", applyFilters);
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      sourceFilter.value = "";
+      categoryFilter.value = "";
+      applyFilters();
+      searchInput.focus();
+    });
+    resultsBody.addEventListener("click", event => {
+      const row = event.target.closest("tr[data-index]");
+      if (!row) return;
+      resultsBody.querySelectorAll("tr.active").forEach(item => item.classList.remove("active"));
+      row.classList.add("active");
+    });
 
     async function init() {
-      try {
-        const loaded = await Promise.all(files.map(loadCSV));
-        allData = loaded.flat();
-
-        showInitialMessage();
-
-        searchInput.addEventListener("input", applyFilters);
-        sourceFilter.addEventListener("change", applyFilters);
-
-        resetBtn.addEventListener("click", () => {
-          searchInput.value = "";
-          sourceFilter.value = "";
-          showInitialMessage();
-        });
-
-        usageToggle.addEventListener("click", () => {
-          if (usageContent.style.display === "block") {
-            usageContent.style.display = "none";
-          } else {
-            usageContent.style.display = "block";
-          }
-        });
-      } catch (error) {
-        resultsBody.innerHTML = `
-          <tr>
-            <td colspan="6" class="empty">
-              Impossible de charger les données. Vérifiez que les fichiers CSV existent bien dans le dossier <code>data/</code>.
-            </td>
-          </tr>
-        `;
-        stats.textContent = "Erreur de chargement";
-        console.error(error);
+      const loaded = await Promise.allSettled(files.map(loadCSV));
+      allData = loaded.flatMap(result => result.status === "fulfilled" ? result.value : []);
+      const failed = files.filter((file, index) => loaded[index].status === "rejected");
+      if (failed.length) {
+        loadStatus.hidden = false;
+        loadStatus.textContent = `Données indisponibles : ${failed.map(file => file.label).join(", ")}. ` +
+          (allData.length ? "Les résultats portent uniquement sur les domaines chargés. " : "") +
+          "Veuillez réessayer en rechargeant la page.";
+        loaded.filter(result => result.status === "rejected").forEach(result => console.error(result.reason));
       }
+      if (!allData.length) {
+        showMessage("Impossible de charger les données. Veuillez réessayer en rechargeant la page.");
+        stats.textContent = "Erreur de chargement";
+        return;
+      }
+      fillSourceOptions(allData);
+      fillCategoryOptions(allData);
+      [searchInput, sourceFilter, categoryFilter, resetBtn].forEach(control => { control.disabled = false; });
+      applyFilters();
     }
-
     init();
   </script>
 </body>

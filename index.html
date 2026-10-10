@@ -400,8 +400,9 @@
     </section>
   </div>
 
-  <script src="js/terminology.js"></script>
+  <script src="js/terminology.js?v=20261010-1"></script>
   <script>
+    const dataVersion = "20261010-1";
     const files = [
       { path: "data/diplomatie.csv", source: "diplomatie", label: "Diplomatie" },
       { path: "data/titres_et_institutions_par_pays.csv", source: "institutions_comparees", label: "Institutions comparées" }
@@ -418,7 +419,7 @@
     const loadStatus = document.getElementById("loadStatus");
 
     async function loadCSV(fileInfo) {
-      const response = await fetch(fileInfo.path);
+      const response = await fetch(`${fileInfo.path}?v=${dataVersion}`, { cache: "no-cache" });
       if (!response.ok) throw new Error(`${fileInfo.path}: HTTP ${response.status}`);
       const data = Terminology.parseDataset(await response.text(), fileInfo.source);
       if (!data.length) throw new Error(`${fileInfo.path}: no entries`);

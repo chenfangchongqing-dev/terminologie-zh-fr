@@ -17,6 +17,8 @@ Les fichiers CSV sont encodés en UTF-8. Tout champ contenant une virgule, un re
 
 Un fichier invalide ou indisponible est signalé ; les autres fichiers restent consultables. Les catégories proviennent des données. Les textes et doublons existants sont conservés ; la correction du format CSV ne constitue pas une révision terminologique.
 
+Lors d’une mise à jour des CSV, changer aussi `dataVersion` dans `index.html` pour éviter de réutiliser une ancienne copie en cache sur GitHub Pages. Actualiser de même le paramètre `v` du script si le parseur change.
+
 ## Vérification locale
 
 Avec Node.js (18 ou ultérieur), lancer les tests de données, de parsing et de recherche :
